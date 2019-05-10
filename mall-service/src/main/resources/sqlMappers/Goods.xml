@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hex.code.mall.dao.GoodsDao">
+
+    <select id="getGoodsById" resultType="com.hex.code.mall.model.Goods">
+        select * from goods where goods_id = #{goodsId};
+    </select>
+
+    <select id="getGoods" resultType="com.hex.code.mall.model.Goods">
+        select * from goods;
+    </select>
+
+    <insert id="addGoods" parameterType="com.hex.code.mall.model.Goods" useGeneratedKeys="true"
+            keyProperty="goodsId">
+        INSERT INTO `goods` ( `goods_name`, `goods_desc`, `stock`, `goods_status`, `create_time`)
+        VALUES
+	      (#{goodsName},#{goodsDesc}, #{stock}, 1, now());
+    </insert>
+
+
+</mapper>
