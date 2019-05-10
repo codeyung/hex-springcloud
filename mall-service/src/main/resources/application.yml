@@ -5,6 +5,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: mall-service8002
+    prefer-ip-address: true
 
 spring:
   application:

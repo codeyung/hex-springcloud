@@ -5,6 +5,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: user-service8001
+    prefer-ip-address: true
 
 spring:
   application:
@@ -12,11 +15,11 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: true
-#
-#feign:
-#  hystrix:
-#    enabled: true
-#
+
+feign:
+  hystrix:
+    enabled: true
+
 ## hystrix配置
 #hystrix:
 #  shareSecurityContext: true
