@@ -1,10 +1,10 @@
 server:
   port: 8001
-#
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://eservice1:8761/eureka/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
 
 spring:
   application:
