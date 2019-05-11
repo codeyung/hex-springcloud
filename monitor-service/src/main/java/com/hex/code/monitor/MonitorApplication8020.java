@@ -13,7 +13,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
  * @date: 2019-05-10.14:10
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-//@EnableEurekaClient
 @EnableDiscoveryClient
 @EnableTurbine
 @EnableHystrixDashboard
