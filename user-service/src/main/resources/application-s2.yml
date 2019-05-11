@@ -1,0 +1,10 @@
+server:
+  port: 8003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: user-service8003
+    prefer-ip-address: true

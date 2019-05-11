@@ -1,0 +1,28 @@
+server:
+  port: 8020
+
+spring:
+  application:
+    name: monitor-service
+
+turbine:
+  appConfig: user-service,mall-service
+  aggregator:
+    clusterConfig: default
+  cluster-name-expression: new String("default")
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    hostname: monitor-service
+    prefer-ip-address: true
+    instance-id: monitor-service
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
+

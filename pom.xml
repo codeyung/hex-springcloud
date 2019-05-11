@@ -9,6 +9,8 @@
         <module>user-service</module>
         <module>mall-service</module>
         <module>eureka-service</module>
+        <module>monitor-service</module>
+        <module>config-service</module>
     </modules>
 
 

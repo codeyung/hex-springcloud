@@ -1,0 +1,25 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: config-service
+  profiles:
+    active: native
+#http://192.168.1.100:8030/mall-service-native.yml
+#  # spring boot admin配置
+#  boot:
+#    admin:
+#      client:
+#        url: http://${ADMIN_HOST:localhost}:${ADMIN_PORT:8085}/admin
+#        username: ${ADMIN_USERNAME:admin}
+#        password: ${ADMIN_PASSWORD:11}
+#        instance:
+#          service-base-url: http://${CONFIG_SERVICE_HOST:localhost}:${server.port}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: config-service8030
+    prefer-ip-address: true

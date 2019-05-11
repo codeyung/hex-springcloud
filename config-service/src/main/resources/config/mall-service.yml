@@ -1,20 +1,20 @@
 server:
   port: 8002
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
-  instance:
-    instance-id: mall-service8002
-    prefer-ip-address: true
-
-spring:
-  application:
-    name: mall-service
-  jackson:
-    serialization:
-      write-dates-as-timestamps: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eservice1:8010/eureka/
+#  instance:
+#    instance-id: mall-service8002
+#    prefer-ip-address: true
+#
+#spring:
+#  application:
+#    name: mall-service
+#  jackson:
+#    serialization:
+#      write-dates-as-timestamps: true
 #
 #feign:
 #  hystrix:
@@ -29,6 +29,12 @@ spring:
 #        isolation:
 #          thread:
 #            timeoutInMilliseconds: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 
 redis:

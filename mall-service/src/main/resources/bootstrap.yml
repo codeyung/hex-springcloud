@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mall-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  cloud:
+    config:
+      fail-fast: true
+      retry:
+        max-attempts: 5
+      discovery:
+        enabled: true
+        service-id: config-service
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: mall-service8002
+    prefer-ip-address: true
+

@@ -1,35 +1,41 @@
-server:
-  port: 8001
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
-  instance:
-    instance-id: user-service8001
-    prefer-ip-address: true
-
+#server:
+#  port: 8001
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eservice1:8010/eureka/
+#  instance:
+#    instance-id: user-service8001
+#    prefer-ip-address: true
 spring:
   application:
     name: user-service
   jackson:
     serialization:
       write-dates-as-timestamps: true
+  profiles:
+    active: s1
 
 feign:
   hystrix:
     enabled: true
 
-## hystrix配置
-#hystrix:
-#  shareSecurityContext: true
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
+# hystrix配置
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 redis:
   lettuce:
