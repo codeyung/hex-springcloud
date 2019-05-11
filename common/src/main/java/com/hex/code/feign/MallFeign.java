@@ -2,6 +2,8 @@ package com.hex.code.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 /**
  * @author: codeyung  E-mail:yjc199308@gmail.com
@@ -15,4 +17,6 @@ public interface MallFeign {
     @GetMapping("/goods")
     String getGoods();
 
+    @PutMapping("/goods/{goodsId}/stock")
+    String updateStock(@PathVariable("goodsId") long goodsId);
 }

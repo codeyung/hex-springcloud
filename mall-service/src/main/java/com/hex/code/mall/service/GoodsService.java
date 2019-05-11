@@ -31,4 +31,7 @@ public class GoodsService {
 
     }
 
+    public int updateStock(long goodsId) {
+        return goodsDao.updateStock(goodsId);
+    }
 }

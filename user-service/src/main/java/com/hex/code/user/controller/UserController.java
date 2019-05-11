@@ -3,14 +3,12 @@ package com.hex.code.user.controller;
 import com.hex.code.config.RedisService;
 import com.hex.code.exception.CommonException;
 import com.hex.code.feign.MallFeign;
+import com.hex.code.feign.OrderFeign;
 import com.hex.code.user.Result;
 import com.hex.code.user.service.UserService;
 import com.hex.code.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: codeyung  E-mail:yjc199308@gmail.com
@@ -50,10 +48,27 @@ public class UserController {
     @Autowired
     MallFeign mallFeign;
 
+    @Autowired
+    OrderFeign orderFeign;
+
 
     @GetMapping("goods")
     public Result getGoods() {
         return new Result<>(mallFeign.getGoods());
+    }
+
+
+    @PostMapping("order")
+    public Result addOrder(@RequestParam("goodsId") long goodsId) {
+
+        String s1 = mallFeign.updateStock(goodsId);
+        System.out.println("更新库存结果 " + s1);
+
+        s1 = orderFeign.addOrder(goodsId);
+        System.out.println("生成订单结果 " + s1);
+
+        return new Result<>(true);
+
     }
 
 

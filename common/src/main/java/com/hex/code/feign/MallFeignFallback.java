@@ -14,4 +14,9 @@ public class MallFeignFallback implements MallFeign {
     public String getGoods() {
         return "请求失败";
     }
+
+    @Override
+    public String updateStock(long goodsId) {
+        return "更新库存失败";
+    }
 }

@@ -32,6 +32,11 @@ public class GoodsController {
     }
 
 
+    @PutMapping("/goods/{goodsId}/stock")
+    public Boolean updateStock(@PathVariable("goodsId") long goodsId) {
+        return goodsService.updateStock(goodsId) > 0 ? true : false;
+    }
+
     @PostMapping("goods")
     public Goods get(@RequestBody Goods goods) {
         return goodsService.add(goods);

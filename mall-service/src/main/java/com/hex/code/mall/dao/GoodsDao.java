@@ -17,5 +17,5 @@ public interface GoodsDao {
 
     int addGoods(Goods goods);
 
-
+    int updateStock(@Param("goodsId") long goodsId);
 }

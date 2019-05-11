@@ -17,5 +17,11 @@
 	      (#{goodsName},#{goodsDesc}, #{stock}, 1, now());
     </insert>
 
+    <update id="updateStock">
+        update `goods`
+        set stock = stock-1
+        where goods_id = #{goodsId};
+    </update>
+
 
 </mapper>

@@ -25,7 +25,7 @@ public class OrderController {
 
 
     @PostMapping("order")
-    public Result addOrder(long goodsId) {
+    public Result addOrder(@RequestParam("goodsId") long goodsId) {
         long userId = 1;
         if (orderService.add(userId, goodsId) == null) {
             return new Result<>(new CommonException("添加失败"), Result.FAIL);
