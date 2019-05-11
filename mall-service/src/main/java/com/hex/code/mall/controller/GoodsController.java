@@ -3,6 +3,7 @@ package com.hex.code.mall.controller;
 import com.hex.code.mall.model.Goods;
 import com.hex.code.mall.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +35,16 @@ public class GoodsController {
     @PostMapping("goods")
     public Goods get(@RequestBody Goods goods) {
         return goodsService.add(goods);
+    }
+
+
+    @Value("${test}")
+    private String test;
+
+    @GetMapping("test")
+    public String test() {
+        return test;
+
     }
 
 

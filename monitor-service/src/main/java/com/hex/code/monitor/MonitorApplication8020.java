@@ -1,9 +1,10 @@
 package com.hex.code.monitor;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.turbine.EnableTurbine;
 
@@ -12,9 +13,13 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
  * @date: 2019-05-10.14:10
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@EnableEurekaClient
+//@EnableEurekaClient
+@EnableDiscoveryClient
 @EnableTurbine
 @EnableHystrixDashboard
+@EnableAdminServer
+// 动态刷新
+//@RefreshScope
 public class MonitorApplication8020 {
 
 //    仪表盘熔断监控 http://192.168.1.100:8020/hystrix

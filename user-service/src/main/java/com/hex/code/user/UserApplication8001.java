@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients(basePackages = {"com.hex.code"})
 @ComponentScan(basePackages = {"com.hex.code"})
 @EnableCircuitBreaker   //支持监控
-//@EnableHystrixDashboard 熔断器的可视化仪表盘界面
+//@EnableHystrixDashboard //熔断器的可视化仪表盘界面
 public class UserApplication8001 {
 
 

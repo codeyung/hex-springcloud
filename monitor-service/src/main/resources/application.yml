@@ -5,17 +5,26 @@ spring:
   application:
     name: monitor-service
 
+#turbine:
+#  appConfig: user-service,mall-service
+#  aggregator:
+#    clusterConfig: USER-SERVICE,MALL-SERVICE
+
 turbine:
-  appConfig: user-service,mall-service
   aggregator:
     clusterConfig: default
-  cluster-name-expression: new String("default")
+  appConfig: user-service,mall-service
+  clusterNameExpression: new String("default")
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
 
 eureka:
   instance:

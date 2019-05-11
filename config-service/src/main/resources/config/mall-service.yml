@@ -1,14 +1,30 @@
 server:
   port: 8002
 
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://eservice1:8010/eureka/
-#  instance:
-#    instance-id: mall-service8002
-#    prefer-ip-address: true
-#
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eservice1:8010/eureka/
+  instance:
+    instance-id: mall-service8002
+    prefer-ip-address: true
+
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8020
+  # sleuth 配置
+  sleuth:
+    #    web:
+    #      client:
+    #        enabled: true
+    sampler:
+      probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
+  # zipkin 配置
+  zipkin:
+    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}  # 指定了Zipkin服务器的地址
 #spring:
 #  application:
 #    name: mall-service
@@ -30,11 +46,28 @@ server:
 #          thread:
 #            timeoutInMilliseconds: 60000
 
+feign:
+  hystrix:
+    enabled: true
+
+# hystrix配置
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 
 redis:
@@ -76,3 +109,5 @@ datasource:
 mybatis:
     typeAliasesPackage: com.hex.code.mall.dao
     mapperLocations: classpath:sqlMappers/*.xml
+
+test: asd1
