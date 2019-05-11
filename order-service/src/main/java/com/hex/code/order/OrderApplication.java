@@ -1,4 +1,4 @@
-package com.hex.code.user;
+package com.hex.code.order;
 
 
 import org.springframework.boot.SpringApplication;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.hex.code"})
 @EnableCircuitBreaker   //支持监控
 //@EnableHystrixDashboard //熔断器的可视化仪表盘界面
-public class UserApplication8001 {
+public class OrderApplication {
 
 
 //    /**
@@ -33,7 +33,7 @@ public class UserApplication8001 {
 //    }
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication8001.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 
 }

@@ -1,16 +1,16 @@
 server:
-  port: 8001
+  port: 8003
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-service:8010/eureka/
   instance:
-    instance-id: user-service01
+    instance-id: order-service01
     prefer-ip-address: true
 spring:
   application:
-    name: user-service
+    name: order-service
   jackson:
     serialization:
       write-dates-as-timestamps: true
@@ -20,9 +20,9 @@ spring:
         url: http://monitor-service:8020
   # sleuth 配置
   sleuth:
-#    web:
-#      client:
-#        enabled: true
+    #    web:
+    #      client:
+    #        enabled: true
     sampler:
       probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
   # zipkin 配置
@@ -84,10 +84,10 @@ datasource:
   defaultAutoCommit: true
   maxOpenPreparedStatements: 20
   filters: stat
-  url: jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  url: jdbc:mysql://127.0.0.1:3306/order?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
   name: root
   password:
 
 mybatis:
-    typeAliasesPackage: com.hex.code.user.dao
-    mapperLocations: classpath:sqlMappers/*.xml
+  typeAliasesPackage: com.hex.code.order.dao
+  mapperLocations: classpath:sqlMappers/*.xml

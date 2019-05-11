@@ -15,11 +15,11 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @ComponentScan(basePackages = {"com.hex.code"})
 @EnableCircuitBreaker   //支持监控
-public class MallApplication8002 {
+public class MallApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(MallApplication8002.class, args);
+        SpringApplication.run(MallApplication.class, args);
     }
 
 }

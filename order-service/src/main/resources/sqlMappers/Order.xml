@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hex.code.order.dao.OrderDao">
+
+    <insert id="addOrder" parameterType="com.hex.code.order.model.Order" useGeneratedKeys="true"
+            keyProperty="orderId">
+        INSERT INTO `order` ( `goods_id`, `user_id`, `create_time`)
+        VALUES
+            ( #{goodsId}, #{userId}, #{createTime});
+    </insert>
+
+
+    <select id="getOrderById" resultType="com.hex.code.order.model.Order">
+      select * from `order` where order_id = #{orderId};
+    </select>
+
+    <select id="getOrders" resultType="com.hex.code.order.model.Order">
+      select * from `order` where user_id = #{userId};
+    </select>
+
+</mapper>

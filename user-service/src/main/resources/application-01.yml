@@ -1,12 +1,12 @@
 server:
-  port: 8001
+  port: 8005
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-service:8010/eureka/
   instance:
-    instance-id: user-service01
+    instance-id: user-service05
     prefer-ip-address: true
 spring:
   application:
