@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/hex-springcloud.iml
+.gitignore
+.idea/
+hex-springcloud.iml
+*.iml
+*/target/
