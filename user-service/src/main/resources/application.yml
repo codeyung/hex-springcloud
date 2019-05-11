@@ -63,10 +63,10 @@ redis:
       min-idle: 0 #最小空闲连接
       # 链接超时时间（毫秒）
     timeout: 200
-  host: 123.57.84.95
+  host: 127.0.0.1
   port: 6379
-  password: TFKA(~@!ji^XALQ(sHy7xTwTn8D$s0jF
-  database: 3
+  password:
+  database: 0
 
 
 
