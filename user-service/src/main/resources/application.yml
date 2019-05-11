@@ -1,25 +1,23 @@
-#server:
-#  port: 8001
-#
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://eservice1:8010/eureka/
-#  instance:
-#    instance-id: user-service8001
-#    prefer-ip-address: true
+server:
+  port: 8001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8010/eureka/
+  instance:
+    instance-id: user-service
+    prefer-ip-address: true
 spring:
   application:
     name: user-service
   jackson:
     serialization:
       write-dates-as-timestamps: true
-  profiles:
-    active: s1
   boot:
     admin:
       client:
-        url: http://localhost:8020
+        url: http://monitor-service:8020
   # sleuth 配置
   sleuth:
 #    web:

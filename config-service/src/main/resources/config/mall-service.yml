@@ -4,9 +4,9 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
+      defaultZone: http://eureka-service:8010/eureka/
   instance:
-    instance-id: mall-service8002
+    instance-id: mall-service
     prefer-ip-address: true
 
 
@@ -14,7 +14,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8020
+        url: http://monitor-service:8020
   # sleuth 配置
   sleuth:
     #    web:
@@ -107,7 +107,7 @@ datasource:
   password:
 
 mybatis:
-    typeAliasesPackage: com.hex.code.mall.dao
-    mapperLocations: classpath:sqlMappers/*.xml
+  typeAliasesPackage: com.hex.code.mall.dao
+  mapperLocations: classpath:sqlMappers/*.xml
 
 test: asd1

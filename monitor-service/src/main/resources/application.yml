@@ -33,5 +33,5 @@ eureka:
     instance-id: monitor-service
   client:
     serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
+      defaultZone: http://eureka-service:8010/eureka/
 

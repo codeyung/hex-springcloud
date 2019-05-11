@@ -13,10 +13,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableDiscoveryClient
 @EnableConfigServer
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-public class ConfigApplication8030 {
+public class ConfigApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConfigApplication8030.class, args);
+        SpringApplication.run(ConfigApplication.class, args);
     }
 
 }

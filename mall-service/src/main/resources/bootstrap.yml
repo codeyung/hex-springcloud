@@ -17,8 +17,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
+      defaultZone: http://eureka-service:8010/eureka/
   instance:
-    instance-id: mall-service8002
+    instance-id: mall-service
     prefer-ip-address: true
 

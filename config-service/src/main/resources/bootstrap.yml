@@ -19,7 +19,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eservice1:8010/eureka/
+      defaultZone: http://monitor-service:8010/eureka/
   instance:
-    instance-id: config-service8030
+    instance-id: config-service
     prefer-ip-address: true
