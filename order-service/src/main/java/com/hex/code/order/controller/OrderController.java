@@ -1,11 +1,13 @@
 package com.hex.code.order.controller;
 
-import com.hex.code.config.RedisService;
 import com.hex.code.order.model.Order;
 import com.hex.code.order.service.OrderService;
+import com.hex.code.tools.Session;
+import com.hex.code.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -16,16 +18,19 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private RedisService redisService;
+    private OrderService orderService;
 
     @Autowired
-    private OrderService orderService;
+    private Session session;
 
 
     @PostMapping("order")
-    public Boolean addOrder(@RequestParam("goodsId") long goodsId) {
-        long userId = 1;
-        return orderService.add(userId, goodsId);
+    public Boolean addOrder(@RequestParam("goodsId") long goodsId, HttpServletRequest request) {
+        UserVo user = session.getUser(request);
+        if (user == null) {
+            return false;
+        }
+        return orderService.add(user.getUserId(), goodsId);
     }
 
 
@@ -35,8 +40,12 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    public List<Order> getOrders(@RequestParam("userId") long userId) {
-        return orderService.getOrders(userId);
+    public List<Order> getOrders(HttpServletRequest request) {
+        UserVo user = session.getUser(request);
+        if (user == null) {
+            return null;
+        }
+        return orderService.getOrders(user.getUserId());
     }
 
 

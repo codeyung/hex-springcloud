@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  */
 
 //@FeignClient(value = "customer-service"s)
-@FeignClient(value = "mall-service", fallback = MallFeignFallback.class)
+@FeignClient(value = "mall-service", configuration = FeignConfiguration.class, fallback = MallFeignFallback.class)
 public interface MallFeign {
 
     @GetMapping("/goods")
