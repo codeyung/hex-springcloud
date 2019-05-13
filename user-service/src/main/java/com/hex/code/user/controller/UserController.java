@@ -10,9 +10,6 @@ import com.hex.code.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-
 /**
  * @author: codeyung  E-mail:yjc199308@gmail.com
  * @date: 2019-05-09.22:52
@@ -41,18 +38,6 @@ public class UserController {
     @PostMapping("register")
     public Result register(@RequestBody UserVo user) {
         return userService.add(user);
-    }
-
-    @GetMapping("user/ss")
-    public Result get(HttpServletRequest request) {
-        UserVo user = session.getUser(request.getHeader("authorization"));
-        Enumeration<String> s = request.getHeaderNames();
-        while (s.hasMoreElements()) {
-            String key = s.nextElement();
-            String value = request.getHeader(key);
-            System.out.println(key + "----" + value);
-        }
-        return new Result<>(orderFeign.ss(1));
     }
 
     @GetMapping("goods")

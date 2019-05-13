@@ -1,7 +1,6 @@
 package com.hex.code.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +14,4 @@ public interface OrderFeign {
 
     @PostMapping("order")
     Boolean addOrder(@RequestParam("goodsId") long goodsId);
-
-    @GetMapping("/order/ss")
-    Boolean ss(@RequestParam("goodsId") long goodsId);
 }
