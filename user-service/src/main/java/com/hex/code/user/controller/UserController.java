@@ -60,15 +60,14 @@ public class UserController {
 
     @PostMapping("order")
     public Result addOrder(@RequestParam("goodsId") long goodsId) {
-
-        String s1 = mallFeign.updateStock(goodsId);
-        System.out.println("更新库存结果 " + s1);
-
-        s1 = orderFeign.addOrder(goodsId);
-        System.out.println("生成订单结果 " + s1);
-
-        return new Result<>(true);
-
+        boolean flag;
+        try {
+            flag = userService.addOrder(goodsId);
+            return new Result<>(flag);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result<>(new CommonException("添加失败"), Result.FAIL);
+        }
     }
 
 

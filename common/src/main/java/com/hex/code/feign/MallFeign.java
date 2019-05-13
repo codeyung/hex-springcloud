@@ -18,5 +18,5 @@ public interface MallFeign {
     String getGoods();
 
     @PutMapping("/goods/{goodsId}/stock")
-    String updateStock(@PathVariable("goodsId") long goodsId);
+    Boolean updateStock(@PathVariable("goodsId") long goodsId);
 }

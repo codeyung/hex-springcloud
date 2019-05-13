@@ -12,6 +12,7 @@
         <module>monitor-service</module>
         <module>config-service</module>
         <module>order-service</module>
+        <module>tx-manager</module>
     </modules>
 
 
@@ -66,7 +67,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
 
         <dependency>

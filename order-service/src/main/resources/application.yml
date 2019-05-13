@@ -91,3 +91,17 @@ datasource:
 mybatis:
   typeAliasesPackage: com.hex.code.order.dao
   mapperLocations: classpath:sqlMappers/*.xml
+
+
+tx-lcn:
+  client:
+    manager-address: tx-manager:8150
+  #  logger:
+  #    enabled: true
+  #    driver-class-name: ${spring.datasource.driver-class-name}
+  #    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  #    username: ${spring.datasource.username}
+  #    password:
+  springcloud:
+    loadbalance:
+      enabled: true

@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface OrderFeign {
 
     @PostMapping("order")
-    String addOrder(@RequestParam("goodsId") long goodsId);
+    Boolean addOrder(@RequestParam("goodsId") long goodsId);
 
 }

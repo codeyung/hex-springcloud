@@ -1,9 +1,11 @@
 package com.hex.code.order.service;
 
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.hex.code.order.dao.OrderDao;
 import com.hex.code.order.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -19,16 +21,18 @@ public class OrderService {
     OrderDao orderDao;
 
 
-    public Order add(long userId, long goodsId) {
+    @LcnTransaction
+    @Transactional
+    public boolean add(long userId, long goodsId) {
         Order order = new Order();
         order.setUserId(userId);
         order.setGoodsId(goodsId);
         order.setCreateTime(new Date());
 
         if (orderDao.addOrder(order) < 1) {
-            return null;
+            return false;
         }
-        return order;
+        return true;
 
     }
 

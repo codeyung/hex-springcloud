@@ -1,5 +1,6 @@
 package com.hex.code.mall;
 
+import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @ComponentScan(basePackages = {"com.hex.code"})
 @EnableCircuitBreaker   //支持监控
+@EnableDistributedTransaction//txlcn
 public class MallApplication {
 
 

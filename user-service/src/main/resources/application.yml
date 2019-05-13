@@ -20,9 +20,9 @@ spring:
         url: http://monitor-service:8020
   # sleuth 配置
   sleuth:
-#    web:
-#      client:
-#        enabled: true
+    #    web:
+    #      client:
+    #        enabled: true
     sampler:
       probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
   # zipkin 配置
@@ -89,5 +89,60 @@ datasource:
   password:
 
 mybatis:
-    typeAliasesPackage: com.hex.code.user.dao
-    mapperLocations: classpath:sqlMappers/*.xml
+  typeAliasesPackage: com.hex.code.user.dao
+  mapperLocations: classpath:sqlMappers/*.xml
+
+tx-lcn:
+  client:
+    manager-address: tx-manager:8150
+  #  logger:
+  #    enabled: true
+  #    driver-class-name: ${spring.datasource.driver-class-name}
+  #    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  #    username: ${spring.datasource.username}
+  #    password:
+  springcloud:
+    loadbalance:
+      enabled: true
+
+
+
+
+
+## 是否启动LCN负载均衡策略(优化选项，开启与否，功能不受影响)
+#  tx-lcn.ribbon.loadbalancer.dtx.enabled=true
+#
+#  # tx-manager 的配置地址，可以指定TM集群中的任何一个或多个地址
+#  # tx-manager 下集群策略，每个TC都会从始至终<断线重连>与TM集群保持集群大小个连接。
+#  # TM方，每有TM进入集群，会找到所有TC并通知其与新TM建立连接。
+#  # TC方，启动时按配置与集群建立连接，成功后，会再与集群协商，查询集群大小并保持与所有TM的连接
+#  tx-lcn.client.manager-address=127.0.0.1:8070
+#
+#  # 该参数是分布式事务框架存储的业务切面信息。采用的是h2数据库。绝对路径。该参数默认的值为{user.dir}/.txlcn/{application.name}-{application.port}
+#  tx-lcn.aspect.log.file-path=logs/.txlcn/demo-8080
+#
+#  # 调用链长度等级，默认值为3（优化选项。系统中每个请求大致调用链平均长度，估算值。）
+#  tx-lcn.client.chain-level=3
+#
+#  # 该参数为tc与tm通讯时的最大超时时间，单位ms。该参数不需要配置会在连接初始化时由tm返回。
+#  tx-lcn.client.tm-rpc-timeout=2000
+#
+#  # 该参数为分布式事务的最大时间，单位ms。该参数不允许TC方配置，会在连接初始化时由tm返回。
+#  tx-lcn.client.dtx-time=8000
+#
+#  # 该参数为雪花算法的机器编号，所有TC不能相同。该参数不允许配置，会在连接初始化时由tm返回。
+#  tx-lcn.client.machine-id=1
+#
+#  # 该参数为事务方法注解切面的orderNumber，默认值为0.
+#  tx-lcn.client.dtx-aspect-order=0
+#
+#  # 该参数为事务连接资源方法切面的orderNumber，默认值为0.
+#  tx-lcn.client.resource-order=0
+#
+#  # 是否开启日志记录。当开启以后需要配置对应logger的数据库连接配置信息。
+#  tx-lcn.logger.enabled=false
+#  tx-lcn.logger.driver-class-name=${spring.datasource.driver-class-name}
+#  tx-lcn.logger.jdbc-url=${spring.datasource.url}
+#  tx-lcn.logger.username=${spring.datasource.username}
+#  tx-lcn.logger.password=${spring.datasource.password
+

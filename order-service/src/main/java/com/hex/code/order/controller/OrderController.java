@@ -1,8 +1,6 @@
 package com.hex.code.order.controller;
 
 import com.hex.code.config.RedisService;
-import com.hex.code.exception.CommonException;
-import com.hex.code.order.Result;
 import com.hex.code.order.model.Order;
 import com.hex.code.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +23,9 @@ public class OrderController {
 
 
     @PostMapping("order")
-    public Result addOrder(@RequestParam("goodsId") long goodsId) {
+    public Boolean addOrder(@RequestParam("goodsId") long goodsId) {
         long userId = 1;
-        if (orderService.add(userId, goodsId) == null) {
-            return new Result<>(new CommonException("添加失败"), Result.FAIL);
-        }
-        return new Result<>(true);
+        return orderService.add(userId, goodsId);
     }
 
 

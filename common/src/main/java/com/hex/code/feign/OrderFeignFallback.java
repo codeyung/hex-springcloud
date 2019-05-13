@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class OrderFeignFallback implements OrderFeign {
 
     @Override
-    public String addOrder(long orderId) {
-        return "";
+    public Boolean addOrder(long orderId) {
+        return false;
     }
 }
