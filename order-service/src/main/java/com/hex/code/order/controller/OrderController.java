@@ -6,6 +6,8 @@ import com.hex.code.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -37,6 +39,19 @@ public class OrderController {
     @GetMapping("/order")
     public List<Order> getOrders(@RequestParam("userId") long userId) {
         return orderService.getOrders(userId);
+    }
+
+
+    @GetMapping("/order/ss")
+    public Boolean ss(@RequestParam("goodsId") long goodsId, HttpServletRequest request) {
+        Enumeration<String> s = request.getHeaderNames();
+        while (s.hasMoreElements()) {
+            String key = s.nextElement();
+            String value = request.getHeader(key);
+            System.out.println(key + "----" + value);
+        }
+
+        return false;
     }
 
 

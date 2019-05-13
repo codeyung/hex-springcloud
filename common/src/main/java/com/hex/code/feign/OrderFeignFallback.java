@@ -14,4 +14,9 @@ public class OrderFeignFallback implements OrderFeign {
     public Boolean addOrder(long orderId) {
         return false;
     }
+
+    @Override
+    public Boolean ss(long goodsId) {
+        return false;
+    }
 }

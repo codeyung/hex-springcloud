@@ -42,6 +42,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+          strategy: SEMAPHORE
 
 management:
   endpoints:

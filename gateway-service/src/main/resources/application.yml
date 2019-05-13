@@ -67,6 +67,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+          strategy: SEMAPHORE
 
 management:
   endpoints:
@@ -91,3 +92,5 @@ redis:
   password:
   database: 0
 
+skip:
+  urls: /user/session,/user/register
