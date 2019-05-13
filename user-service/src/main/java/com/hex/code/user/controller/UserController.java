@@ -24,10 +24,10 @@ public class UserController {
     private Session session;
 
     @Autowired
-    MallFeign mallFeign;
+    private MallFeign mallFeign;
 
     @Autowired
-    OrderFeign orderFeign;
+    private OrderFeign orderFeign;
 
 
     @PostMapping("session")
