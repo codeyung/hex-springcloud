@@ -1,0 +1,93 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8010/eureka/
+  instance:
+    instance-id: gateway-service
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: gateway-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+#        - id: mall-service
+#            uri: lb://mall-service
+#            predicates:
+#              - Path=/mall/**
+#            filters:
+#              - StripPrefix=1
+      discovery:
+        locator:
+          lower-case-service-id: true
+  boot:
+    admin:
+      client:
+        url: http://monitor-service:8020
+  # sleuth 配置
+  sleuth:
+    #    web:
+    #      client:
+    #        enabled: true
+    sampler:
+      probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
+  # zipkin 配置
+  zipkin:
+    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}  # 指定了Zipkin服务器的地址
+
+feign:
+  hystrix:
+    enabled: true
+
+# hystrix配置
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+redis:
+  lettuce:
+    pool:
+      max-active: 8 #最大连接数
+      max-wait: -1 #默认-1 最大连接阻塞等待时间
+      max-idle: 8 #最大空闲连接 默认8
+      min-idle: 0 #最小空闲连接
+      # 链接超时时间（毫秒）
+    timeout: 200
+  host: 127.0.0.1
+  port: 6379
+  password:
+  database: 0
+

@@ -46,16 +46,16 @@ public class UserService {
     @LcnTransaction
     public Boolean addOrder(long goodsId) {
 
-        Boolean flag = mallFeign.updateStock(goodsId);
-        System.out.println("更新库存结果 " + flag);
+        Boolean flag1 = mallFeign.updateStock(goodsId);
+        System.out.println("更新库存结果 " + flag1);
 
-        flag = orderFeign.addOrder(goodsId);
-        System.out.println("生成订单结果 " + flag);
+        Boolean flag2 = orderFeign.addOrder(goodsId);
+        System.out.println("生成订单结果 " + flag2);
 //        flag=false;
         // 置异常标志，DTX 回滚
-        if (!flag) {
+        if (!flag1 == flag2 == true) {
             throw new IllegalStateException("by exFlag");
         }
-        return flag;
+        return true;
     }
 }
