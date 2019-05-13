@@ -45,7 +45,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
         }
         String token = exchange.getRequest().getHeaders().getFirst("Authorization");
 
-        if (StringUtils.isEmpty(token) && !redisService.hasKey(token)) {
+        if (StringUtils.isEmpty(token) && redisService.hasKey(token)) {
             ServerHttpResponse originalResponse = exchange.getResponse();
             originalResponse.setStatusCode(HttpStatus.OK);
             originalResponse.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
