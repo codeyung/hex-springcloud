@@ -1,4 +1,4 @@
-package com.hex.code.user;
+package com.hex.code.tools;
 
 /**
  * @author: codeyung  E-mail:yjc199308@gmail.com

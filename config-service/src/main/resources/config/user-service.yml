@@ -1,19 +1,7 @@
 server:
   port: 8001
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-service:8010/eureka/
-  instance:
-    instance-id: user-service01
-    prefer-ip-address: true
 spring:
-  application:
-    name: user-service
-  jackson:
-    serialization:
-      write-dates-as-timestamps: true
   boot:
     admin:
       client:

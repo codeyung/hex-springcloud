@@ -1,0 +1,41 @@
+server:
+  port: 8020
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://monitor-service:8020
+  # sleuth 配置
+  sleuth:
+    #    web:
+    #      client:
+    #        enabled: true
+    sampler:
+      probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
+  # zipkin 配置
+  zipkin:
+    base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}  # 指定了Zipkin服务器的地址
+
+feign:
+  hystrix:
+    enabled: true
+
+# hystrix配置
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

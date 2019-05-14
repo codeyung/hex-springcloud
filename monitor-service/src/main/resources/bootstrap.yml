@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: monitor-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  cloud:
+    config:
+      fail-fast: true
+      retry:
+        max-attempts: 5
+      discovery:
+        enabled: true
+        service-id: config-service
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8010/eureka/
+  instance:
+    instance-id: monitor-service
+    prefer-ip-address: true
+

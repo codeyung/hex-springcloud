@@ -1,15 +1,6 @@
 server:
   port: 8002
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-service:8010/eureka/
-  instance:
-    instance-id: mall-service
-    prefer-ip-address: true
-
-
 spring:
   boot:
     admin:
@@ -25,26 +16,6 @@ spring:
   # zipkin 配置
   zipkin:
     base-url: http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}  # 指定了Zipkin服务器的地址
-#spring:
-#  application:
-#    name: mall-service
-#  jackson:
-#    serialization:
-#      write-dates-as-timestamps: true
-#
-#feign:
-#  hystrix:
-#    enabled: true
-#
-## hystrix配置
-#hystrix:
-#  shareSecurityContext: true
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
 
 feign:
   hystrix:
@@ -59,6 +30,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+          strategy: SEMAPHORE
 
 management:
   endpoints:

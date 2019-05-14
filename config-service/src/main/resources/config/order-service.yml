@@ -1,28 +1,16 @@
 server:
-  port: 8005
+  port: 8003
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-service:8010/eureka/
-  instance:
-    instance-id: user-service05
-    prefer-ip-address: true
 spring:
-  application:
-    name: user-service
-  jackson:
-    serialization:
-      write-dates-as-timestamps: true
   boot:
     admin:
       client:
         url: http://monitor-service:8020
   # sleuth 配置
   sleuth:
-#    web:
-#      client:
-#        enabled: true
+    #    web:
+    #      client:
+    #        enabled: true
     sampler:
       probability: 1.0 # 采样比例为: 0.1(即10%),设置的值介于0.0到1.0之间，1.0则表示全部采集。
   # zipkin 配置
@@ -42,6 +30,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+          strategy: SEMAPHORE
 
 management:
   endpoints:
@@ -84,10 +73,24 @@ datasource:
   defaultAutoCommit: true
   maxOpenPreparedStatements: 20
   filters: stat
-  url: jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  url: jdbc:mysql://127.0.0.1:3306/order?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
   name: root
   password:
 
 mybatis:
-    typeAliasesPackage: com.hex.code.user.dao
-    mapperLocations: classpath:sqlMappers/*.xml
+  typeAliasesPackage: com.hex.code.order.dao
+  mapperLocations: classpath:sqlMappers/*.xml
+
+
+tx-lcn:
+  client:
+    manager-address: tx-manager:8150
+  #  logger:
+  #    enabled: true
+  #    driver-class-name: ${spring.datasource.driver-class-name}
+  #    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  #    username: ${spring.datasource.username}
+  #    password:
+  springcloud:
+    loadbalance:
+      enabled: true
