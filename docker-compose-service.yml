@@ -1,0 +1,58 @@
+version: '2'
+services:
+
+  # ---------------------------
+  # 用户服务
+  # ---------------------------
+  user-service:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/user-service:0.0.1-SNAPSHOT
+    container_name: user-service
+    restart: always
+#    depends_on:
+#      - eureka-service
+#      - config-service
+#      - tx-manager
+    ports:
+      - "8001:8001"
+    networks:
+      - net
+
+  # ---------------------------
+  # 商品服务
+  # ---------------------------
+  mall-service:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/mall-service:0.0.1-SNAPSHOT
+    container_name: mall-service
+    restart: always
+    ports:
+      - "8002:8002"
+    networks:
+      - net
+
+  # ---------------------------
+  # 订单服务
+  # ---------------------------
+  order-service:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/order-service:0.0.1-SNAPSHOT
+    container_name: order-service
+    restart: always
+    ports:
+      - "8003:8003"
+    networks:
+      - net
+
+  # ---------------------------
+  # 监控服务
+  # ---------------------------
+#  monitor-service:
+#    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/monitor-service:0.0.1-SNAPSHOT
+#    container_name: monitor-service
+#    restart: always
+#    ports:
+#      - "8020:8020"
+#    networks:
+#      - net
+
+networks:
+  net:
+    driver: bridge

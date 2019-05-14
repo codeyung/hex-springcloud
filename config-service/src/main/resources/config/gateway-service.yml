@@ -29,7 +29,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://monitor-service:8020
+        url: http://${MONITOR_SERVICE_HOST:localhost}:${MONITOR_PORT:8020}
   # sleuth 配置
   sleuth:
     #    web:
@@ -74,8 +74,8 @@ redis:
       min-idle: 0 #最小空闲连接
       # 链接超时时间（毫秒）
     timeout: 200
-  host: 127.0.0.1
-  port: 6379
+  host: ${REDIS_HOST:localhost}
+  port: ${REDIS_PORT:6379}
   password:
   database: 0
 

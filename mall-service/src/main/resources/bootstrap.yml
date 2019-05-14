@@ -17,7 +17,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-service:8010/eureka/
+      defaultZone: http://${EUREKA_SERVICE_HOST:localhost}:${EUREKA_SERVICE_PORT:8010}/eureka/
   instance:
     instance-id: mall-service
     prefer-ip-address: true

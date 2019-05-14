@@ -5,7 +5,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://monitor-service:8020
+        url: http://${MONITOR_SERVICE_HOST:localhost}:${MONITOR_PORT:8020}
   # sleuth 配置
   sleuth:
     #    web:
@@ -50,8 +50,8 @@ redis:
       min-idle: 0 #最小空闲连接
       # 链接超时时间（毫秒）
     timeout: 200
-  host: 127.0.0.1
-  port: 6379
+  host: ${REDIS_HOST:localhost}
+  port: ${REDIS_PORT:6379}
   password:
   database: 0
 
@@ -73,9 +73,9 @@ datasource:
   defaultAutoCommit: true
   maxOpenPreparedStatements: 20
   filters: stat
-  url: jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
-  name: root
-  password:
+  url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/user?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+  name: ${MYSQL_USERNAME:root}
+  password: ${MYSQL_PASSWORD:}
 
 mybatis:
   typeAliasesPackage: com.hex.code.user.dao
@@ -83,7 +83,7 @@ mybatis:
 
 tx-lcn:
   client:
-    manager-address: tx-manager:8150
+    manager-address: ${TXMANAGER_HOST:localhost}:${MYSQL_PORT:8150}
   #  logger:
   #    enabled: true
   #    driver-class-name: ${spring.datasource.driver-class-name}

@@ -1,0 +1,46 @@
+version: '2'
+services:
+  # ---------------------------
+  # 注册中心
+  # ---------------------------
+  eureka-service:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/eureka-service:0.0.1-SNAPSHOT
+    container_name: eureka-service
+    restart: always
+    ports:
+      - "8010:8010"
+    networks:
+      - net
+
+  # ---------------------------
+  # 配置中心
+  # ---------------------------
+  config-service:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/config-service:0.0.1-SNAPSHOT
+    container_name: config-service
+    restart: always
+    depends_on:
+      - eureka-service
+    ports:
+      - "8030:8030"
+    networks:
+      - net
+
+  # ---------------------------
+  # 事务服务
+  # ---------------------------
+  tx-manager:
+    image: registry.cn-hangzhou.aliyuncs.com/hex-springcloud/tx-manager:0.0.1-SNAPSHOT
+    container_name: tx-manager
+    restart: always
+    depends_on:
+      - eureka-service
+    ports:
+      - "8050:8050"
+      - "8150:8150"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
