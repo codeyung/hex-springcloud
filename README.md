@@ -48,7 +48,7 @@ gateway-service    开启后可以看路由文件统一走网关访问 写了简
 monitor-service 需要再开
 
 本地测试
-host  可以不用改用 locahost
+host  可以不用改用 locahost  
 127.0.0.1 eureka-service  
 127.0.0.1 monitor-service  
 127.0.0.1 config-service  
@@ -56,25 +56,25 @@ host  可以不用改用 locahost
 127.0.0.1 mall-service  
 127.0.0.1 order-service  
 
-网关地址
-http://gateway-service:8000/
-注册中心地址
-http://eureka-service:8010/
-监控地址
-http://monitor-service:8020/
-配置中心
-http://config-service:8030/
-用户服务
-http://user-service:8001/
-商品服务
-http://mall-service:8002/
-订单服务
-http://order-service:8003/
-tx-manager服务
-http://tx-manager:8050/    密码codingapi
+网关地址  
+http://gateway-service:8000/  
+注册中心地址  
+http://eureka-service:8010/  
+监控地址  
+http://monitor-service:8020/  
+配置中心  
+http://config-service:8030/  
+用户服务  
+http://user-service:8001/  
+商品服务  
+http://mall-service:8002/  
+订单服务  
+http://order-service:8003/  
+tx-manager服务  
+http://tx-manager:8050/    密码codingapi  
   
-http://monitor-service:8020/hystrix  仪表盘熔断监控  
-http://monitor-service:8001/actuator/hystrix.stream 查看 单体  
+http://monitor-service:8020/hystrix  仪表盘熔断监控   
+http://monitor-service:8001/actuator/hystrix.stream 查看 单体    
 http://monitor-service:8020/turbine.stream   集群监控  
 http://monitor-service:9411 链式监控 java -jar zipkin.jar  
   
