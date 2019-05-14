@@ -1,0 +1,212 @@
+{
+	"id": "d55756d6-0c84-4fbc-9fc8-6ad764480a01",
+	"name": "springcloud",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"94369e6d-599d-4c52-b0df-d495a65536e6",
+		"e002e960-940e-430f-8142-e3fc29b8d089",
+		"d77eb302-b4be-4f5f-b244-69d61bbde0ec",
+		"de0bac18-c9b8-4f7b-b839-a66376ef519e",
+		"0ce2690b-cdd2-4ec3-b5ce-efa36800bafa",
+		"eb4d508e-5a7b-4def-94eb-1488edac73bf",
+		"45d134fe-9687-4e67-b326-4e8915a1b180"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "0ce2690b-cdd2-4ec3-b5ce-efa36800bafa",
+			"name": "http://127.0.0.1:8000/mall/goods/1",
+			"url": "http://127.0.0.1:8000/mall/goods/1",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "45d134fe-9687-4e67-b326-4e8915a1b180",
+			"name": "http://127.0.0.1:8000/order/order",
+			"url": "http://127.0.0.1:8000/order/order",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "94369e6d-599d-4c52-b0df-d495a65536e6",
+			"name": "http://127.0.0.1:8000/user/register",
+			"url": "http://127.0.0.1:8000/user/register",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\"name\":\"coco93\",\"phoneNumber\":\"15901495101\",\"password\":\"pwd@123\"}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d77eb302-b4be-4f5f-b244-69d61bbde0ec",
+			"name": "http://127.0.0.1:8000/user/goods",
+			"url": "http://127.0.0.1:8000/user/goods",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "de0bac18-c9b8-4f7b-b839-a66376ef519e",
+			"name": "http://127.0.0.1:8000/user/order?goodsId=1",
+			"url": "http://127.0.0.1:8000/user/order?goodsId=1",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "goodsId",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e002e960-940e-430f-8142-e3fc29b8d089",
+			"name": "http://127.0.0.1:8000/user/session",
+			"url": "http://127.0.0.1:8000/user/session",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\"name\":\"cocoyung\",\"phoneNumber\":\"15901495108\",\"password\":\"pwd@123\"}",
+			"headers": "//authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "eb4d508e-5a7b-4def-94eb-1488edac73bf",
+			"name": "http://127.0.0.1:8000/order/order/1",
+			"url": "http://127.0.0.1:8000/order/order/1",
+			"description": "",
+			"data": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjF9.GqZhRM0nmg8-lP5TVYONp9EW48Qy36Mwi1pteZKcg0w\n",
+			"pathVariables": {}
+		}
+	]
+}
