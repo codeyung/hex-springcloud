@@ -30,23 +30,23 @@ public class UserController {
     private OrderFeign orderFeign;
 
 
-    @PostMapping("session")
+    @PostMapping("/session")
     public Result session(@RequestBody UserVo user) {
         return userService.session(user);
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public Result register(@RequestBody UserVo user) {
         return userService.add(user);
     }
 
-    @GetMapping("goods")
+    @GetMapping("/goods")
     public Result getGoods() {
         return new Result<>(mallFeign.getGoods());
     }
 
 
-    @PostMapping("order")
+    @PostMapping("/order")
     public Result addOrder(@RequestParam("goodsId") long goodsId) {
         boolean flag;
         try {

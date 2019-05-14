@@ -11,7 +11,7 @@ spring:
         max-attempts: 5
       discovery:
         enabled: true
-        service-id: order-service
+        service-id: config-service
 
 
 eureka:

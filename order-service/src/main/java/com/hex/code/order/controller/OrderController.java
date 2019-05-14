@@ -24,7 +24,7 @@ public class OrderController {
     private Session session;
 
 
-    @PostMapping("order")
+    @PostMapping("/order")
     public Boolean addOrder(@RequestParam("goodsId") long goodsId, HttpServletRequest request) {
         UserVo user = session.getUser(request);
         if (user == null) {

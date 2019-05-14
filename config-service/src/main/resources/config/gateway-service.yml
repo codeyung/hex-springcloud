@@ -17,12 +17,12 @@ spring:
             - Path=/order/**
           filters:
             - StripPrefix=1
-#        - id: mall-service
-#            uri: lb://mall-service
-#            predicates:
-#              - Path=/mall/**
-#            filters:
-#              - StripPrefix=1
+        - id: mall-service
+          uri: lb://mall-service
+          predicates:
+            - Path=/mall/**
+          filters:
+            - StripPrefix=1
       discovery:
         locator:
           lower-case-service-id: true

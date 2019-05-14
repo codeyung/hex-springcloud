@@ -19,13 +19,13 @@ public class GoodsController {
     private GoodsService goodsService;
 
 
-    @GetMapping("goods")
+    @GetMapping("/goods")
     public List<Goods> get() {
         return goodsService.getGoods();
     }
 
 
-    @GetMapping("goods/{goodsId}")
+    @GetMapping("/goods/{goodsId}")
     public Goods get(@PathVariable("goodsId") long goodsId) {
         return goodsService.get(goodsId);
     }
@@ -36,7 +36,7 @@ public class GoodsController {
         return goodsService.updateStock(goodsId) > 0 ? true : false;
     }
 
-    @PostMapping("goods")
+    @PostMapping("/goods")
     public Goods get(@RequestBody Goods goods) {
         return goodsService.add(goods);
     }
